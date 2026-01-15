@@ -30,8 +30,13 @@ class Rocket extends Phaser.GameObjects.Sprite {
 
         // reset on miss
         if (this.y <= borderUISize * 3 + borderPadding) {
-            this.isFiring = false;
-            this.y = game.config.height - borderUISize - borderPadding;
+            this.reset();
         }
+    }
+
+    // trigger on collision with ship or screen
+    reset() {
+        this.isFiring = false;
+        this.y = game.config.height - borderUISize - borderPadding;
     }
 }
